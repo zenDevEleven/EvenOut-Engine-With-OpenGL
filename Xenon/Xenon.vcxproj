@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b63bc8c1-c2b4-4140-b533-c53a7fda5d96}</ProjectGuid>
+    <RootNamespace>Xenon</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\EvenOut Engine\src;..\EvenOut Engine\vendor\SDL3\include;..\EvenOut Engine\vendor\glm;..\EvenOut Engine\vendor\Box2d\include;..\EvenOut Engine\vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\x64\Debug;..\EvenOut Engine\vendor\SDL3\Debug;..\EvenOut Engine\vendor\Box2d\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL3.lib;box2d.lib;EvenOut Engine.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>..\x64\Debug</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\LonerBullet.cpp" />
+    <ClCompile Include="src\EnemyLoner.cpp" />
+    <ClCompile Include="src\Clone.cpp" />
+    <ClCompile Include="src\PowerUp.cpp" />
+    <ClCompile Include="src\DestructionParticle.cpp" />
+    <ClCompile Include="src\BigAsteroid.cpp" />
+    <ClCompile Include="src\MediumAsteroid.cpp" />
+    <ClCompile Include="src\SmallAsteroid.cpp" />
+    <ClCompile Include="src\EnemyManager.cpp" />
+    <ClCompile Include="src\EnemyDrone.cpp" />
+    <ClCompile Include="src\ParallaxBG.cpp" />
+    <ClCompile Include="src\Missile.cpp" />
+    <ClCompile Include="src\Background.cpp" />
+    <ClCompile Include="src\GameManager.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\XenonMain.cpp" />
+    <ClCompile Include="src\UIManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\LonerBullet.h" />
+    <ClInclude Include="src\EnemyLoner.h" />
+    <ClInclude Include="src\Clone.h" />
+    <ClInclude Include="src\PowerUp.h" />
+    <ClInclude Include="src\DestructionParticle.h" />
+    <ClInclude Include="src\BigAsteroid.h" />
+    <ClInclude Include="src\MediumAsteroid.h" />
+    <ClInclude Include="src\SmallAsteroid.h" />
+    <ClInclude Include="src\EnemyManager.h" />
+    <ClInclude Include="src\EnemyDrone.h" />
+    <ClInclude Include="src\Global.h" />
+    <ClInclude Include="src\ParallaxBG.h" />
+    <ClInclude Include="src\Missile.h" />
+    <ClInclude Include="src\Background.h" />
+    <ClInclude Include="src\GameManager.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\UIManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EvenOut Engine\EvenOut Engine.vcxproj">
+      <Project>{0c9c46e5-7169-4922-b9a5-c960babff071}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\bblogo.bmp" />
+    <Image Include="Assets\Textures\Blocks.bmp" />
+    <Image Include="Assets\Textures\bosseyes2.bmp" />
+    <Image Include="Assets\Textures\Burner1.bmp" />
+    <Image Include="Assets\Textures\Burner2.bmp" />
+    <Image Include="Assets\Textures\Burner3.bmp" />
+    <Image Include="Assets\Textures\Burner4.bmp" />
+    <Image Include="Assets\Textures\Burner5.bmp" />
+    <Image Include="Assets\Textures\Burner6.bmp" />
+    <Image Include="Assets\Textures\clone.bmp" />
+    <Image Include="Assets\Textures\clonejet.bmp" />
+    <Image Include="Assets\Textures\destroyable.bmp" />
+    <Image Include="Assets\Textures\drone.bmp" />
+    <Image Include="Assets\Textures\EnWeap6.bmp" />
+    <Image Include="Assets\Textures\explode16.bmp" />
+    <Image Include="Assets\Textures\explode32.bmp" />
+    <Image Include="Assets\Textures\explode64.bmp" />
+    <Image Include="Assets\Textures\font16x16.bmp" />
+    <Image Include="Assets\Textures\Font8x8.bmp" />
+    <Image Include="Assets\Textures\galaxy2.bmp" />
+    <Image Include="Assets\Textures\GAster32.bmp" />
+    <Image Include="Assets\Textures\GAster64.bmp" />
+    <Image Include="Assets\Textures\GAster96.bmp" />
+    <Image Include="Assets\Textures\GDust.bmp" />
+    <Image Include="Assets\Textures\GShoot.bmp" />
+    <Image Include="Assets\Textures\HealthBar_Border.bmp" />
+    <Image Include="Assets\Textures\HealthBar_Fill.bmp" />
+    <Image Include="Assets\Textures\hmissile.bmp" />
+    <Image Include="Assets\Textures\Homing.bmp" />
+    <Image Include="Assets\Textures\HomProjc.bmp" />
+    <Image Include="Assets\Textures\logo.bmp" />
+    <Image Include="Assets\Textures\LonerA.bmp" />
+    <Image Include="Assets\Textures\LonerB.bmp" />
+    <Image Include="Assets\Textures\LonerC.bmp" />
+    <Image Include="Assets\Textures\MAster32.bmp" />
+    <Image Include="Assets\Textures\MAster64.bmp" />
+    <Image Include="Assets\Textures\MAster96.bmp" />
+    <Image Include="Assets\Textures\MDust.bmp" />
+    <Image Include="Assets\Textures\missile.bmp" />
+    <Image Include="Assets\Textures\pcflogo.bmp" />
+    <Image Include="Assets\Textures\PCFlogo1.bmp" />
+    <Image Include="Assets\Textures\PCFlogo2.bmp" />
+    <Image Include="Assets\Textures\playerjet.bmp" />
+    <Image Include="Assets\Textures\pod.bmp" />
+    <Image Include="Assets\Textures\PUDive.bmp" />
+    <Image Include="Assets\Textures\PUInvuln.bmp" />
+    <Image Include="Assets\Textures\PULaser.bmp" />
+    <Image Include="Assets\Textures\PULife.bmp" />
+    <Image Include="Assets\Textures\PUMissil.bmp" />
+    <Image Include="Assets\Textures\PUScore.bmp" />
+    <Image Include="Assets\Textures\PUShield.bmp" />
+    <Image Include="Assets\Textures\PUSpeed.bmp" />
+    <Image Include="Assets\Textures\PUWeapon.bmp" />
+    <Image Include="Assets\Textures\retros.bmp" />
+    <Image Include="Assets\Textures\rocks.bmp" />
+    <Image Include="Assets\Textures\rocks_2.bmp" />
+    <Image Include="Assets\Textures\rusher.bmp" />
+    <Image Include="Assets\Textures\SAster32.bmp" />
+    <Image Include="Assets\Textures\SAster64.bmp" />
+    <Image Include="Assets\Textures\SAster96.bmp" />
+    <Image Include="Assets\Textures\SDust.bmp" />
+    <Image Include="Assets\Textures\Ship1.bmp" />
+    <Image Include="Assets\Textures\Ship2.bmp" />
+    <Image Include="Assets\Textures\smoke.bmp" />
+    <Image Include="Assets\Textures\spinners.bmp" />
+    <Image Include="Assets\Textures\SporesA.bmp" />
+    <Image Include="Assets\Textures\SporesB.bmp" />
+    <Image Include="Assets\Textures\SporesC.bmp" />
+    <Image Include="Assets\Textures\SporesD.bmp" />
+    <Image Include="Assets\Textures\wallhugger.bmp" />
+    <Image Include="Assets\Textures\Wingtip.bmp" />
+    <Image Include="Assets\Textures\Xlogo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Textures\Thumbs.db" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
