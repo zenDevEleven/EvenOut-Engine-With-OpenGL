@@ -50,6 +50,8 @@ void SmallAsteroid::OnDie()
 {
 	LOG_APP("im dead", Engine::LOG_ERROR);
 	GameManager::GetManager().GetUIManager().AddPlayerScore(5000);
+	GameManager::GetManager().GetUIManager().SpawnScorePopUp(5000, { m_Transform->Position.x - 16.0f, m_Transform->Position.y + 16.0f });
+
 	Destroy();
 }
 

@@ -49,6 +49,7 @@ void MediumAsteroid::OnDie()
 {
 	LOG_APP("im dead", Engine::LOG_ERROR);
 	GameManager::GetManager().GetUIManager().AddPlayerScore(7500);
+	GameManager::GetManager().GetUIManager().SpawnScorePopUp(7500, { m_Transform->Position.x - 32.0f, m_Transform->Position.y + 32.0f });
 
 	std::string newPath = m_FilePath;
 
@@ -59,7 +60,7 @@ void MediumAsteroid::OnDie()
 
 	newPath.replace(pos, toReplace.length(), "32");
 
-	EnemyManager::GetEnemyManager().SpawnAsteroids(newPath.c_str(), GameManager::GetManager().RandomNumber<int>(1, 5),
+	EnemyManager::GetEnemyManager().SpawnAsteroidsChild(newPath.c_str(), GameManager::GetManager().RandomNumber<int>(1, 3),
 		m_Transform->Position.x - 16.0f, m_Transform->Position.x + 16.0f, m_Transform->Position.y - 8.0f, m_Transform->Position.y + 8.0f, AsteroidsSize::SMALL);
 
 	Destroy();

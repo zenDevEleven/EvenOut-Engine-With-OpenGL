@@ -14,6 +14,9 @@ EnemyLoner::EnemyLoner(glm::vec2 SpawnPosition)
 	m_Collider = &AddComponent<Engine::BoxCollider2DComponent>(glm::vec2(m_SpriteRenderer->m_SpriteTexture->t_PixelSize,
 		m_SpriteRenderer->m_SpriteTexture->t_PixelSize), m_RigidBody);
 	m_SpriteRenderer->SetRotation(90.0f);
+
+	m_Health = &AddComponent<Engine::HealthComponent>(100.0f);
+	m_Health->setOnDieCallback(this, &EnemyLoner::OnDie);
 }
 
 void EnemyLoner::Start()
@@ -57,12 +60,18 @@ void EnemyLoner::Update(float deltaTime)
 	m_Timer+= deltaTime;
 }
 
+void EnemyLoner::OnDie()
+{
+	GameManager::GetManager().GetUIManager().AddPlayerScore(5000);
+	GameManager::GetManager().GetUIManager().SpawnScorePopUp(5000, { m_Transform->Position.x - 32.0f, m_Transform->Position.y + 32.0f });
+	Destroy();
+}
+
 void EnemyLoner::OnContactEvent(Object* other)
 {
 	__super::OnContactEvent(other);
 	if (other->HasTag("Missile")) {
-		LOG_APP("Destroyed!", Engine::LOG_ERROR);
-		Destroy();
+		m_Health->TakeDamage(20.0f);
 	}
 }
 

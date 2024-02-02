@@ -2,32 +2,26 @@
 #include "Engine/Core/Actor.h"
 #include "Engine/Core/Components.h"
 
-class EnemyDrone : public Engine::Actor
+class EnemyRusher : public Engine::Actor
 {
 public:
-	EnemyDrone(float PositionX, float PositionY);
+	EnemyRusher(glm::vec2 spawnPos);
 
-	virtual ~EnemyDrone() {};
+
 	void Start() override;
 
 
 	void Update(float deltaTime) override;
-	void OnDie();
+
+
 	void OnContactEvent(Object* other) override;
 
 
 	void OnEndContactEvent(Object* other) override;
+
+	void OnDie();
+
 private:
-	float m_PositionX;
-	float m_PositionY;
-
-	float lastDeltaTime = 0;
-
-	float m_VelocityX = 20.0f;
-	float m_VelocityY = 520.0f;
-
-	float m_YThreshold = 2000.0f;
-
 	Engine::TransformComponent* m_Transform;
 	Engine::SpriteRenderer2D* m_SpriteRenderer;
 	Engine::AnimatorComponent* m_Animator;
@@ -35,5 +29,7 @@ private:
 	Engine::BoxCollider2DComponent* m_Collider;
 	Engine::HealthComponent* m_Health;
 
+	float m_Damage = 20.0f;
+	float m_YVelocity = 120.0f;
 };
 

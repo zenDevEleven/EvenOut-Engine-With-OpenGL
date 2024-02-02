@@ -118,7 +118,7 @@ void Player::UpgradeMissileTier()
 		m_MissileTier = MissileTier::TIER3;
 		break;
 	case MissileTier::TIER3:
-		m_MissileTier = MissileTier::TIER1;
+		m_MissileTier = MissileTier::TIER3;
 		break;
 	}
 

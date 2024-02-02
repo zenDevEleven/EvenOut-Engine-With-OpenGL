@@ -1,4 +1,5 @@
 #include "EnemyDrone.h"
+#include "GameManager.h"
 using Frame = Engine::AnimatorComponent::AnimationFrame;
 using Animation = Engine::AnimatorComponent::Animation;
 
@@ -16,6 +17,8 @@ EnemyDrone::EnemyDrone(float PositionX, float PositionY)
 																m_SpriteRenderer->m_SpriteTexture->t_PixelSize), m_RigidBody);
 
 	m_SpriteRenderer->SetRotation(90.0f);
+	m_Health = &AddComponent<Engine::HealthComponent>(100.0f);
+	m_Health->setOnDieCallback(this, &EnemyDrone::OnDie);
 }
 
 void EnemyDrone::Start()
@@ -40,12 +43,20 @@ void EnemyDrone::Update(float deltaTime)
 
 }
 
+
+void EnemyDrone::OnDie()
+{
+	GameManager::GetManager().GetUIManager().AddPlayerScore(2500);
+	GameManager::GetManager().GetUIManager().SpawnScorePopUp(2500, { m_Transform->Position.x - 16.0f, m_Transform->Position.y + 16.0f });
+	Destroy();
+}
+
 void EnemyDrone::OnContactEvent(Object* other)
 {
 	__super::OnContactEvent(other);
 	if (other->HasTag("Missile")) {
 		LOG_APP("Destroyed!", Engine::LOG_ERROR);
-		Destroy();
+		m_Health->TakeDamage(50.0f);
 	}
 }
 

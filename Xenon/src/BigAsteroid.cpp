@@ -53,6 +53,7 @@ void BigAsteroid::OnDie()
 	Destroy();
 
 	GameManager::GetManager().GetUIManager().AddPlayerScore(10000);
+	GameManager::GetManager().GetUIManager().SpawnScorePopUp(10000, { m_Transform->Position.x - 48.0f, m_Transform->Position.y + 48.0f });
 
 	std::string newPath = m_FilePath;
 
@@ -64,7 +65,7 @@ void BigAsteroid::OnDie()
 
 	newPath.replace(pos, toReplace.length(), "64");
 
-	EnemyManager::GetEnemyManager().SpawnAsteroids(newPath.c_str(), GameManager::GetManager().RandomNumber<int>(1, 5)
+	EnemyManager::GetEnemyManager().SpawnAsteroidsChild(newPath.c_str(), GameManager::GetManager().RandomNumber<int>(1, 3)
 		, m_Transform->Position.x - 32.0f , m_Transform->Position.x + 32.0f, m_Transform->Position.y - 24.0f, m_Transform->Position.y + 24.0f, AsteroidsSize::MEDIUM);
 	
 	Destroy();

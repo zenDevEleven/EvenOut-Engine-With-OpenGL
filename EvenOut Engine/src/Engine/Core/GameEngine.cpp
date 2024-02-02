@@ -76,24 +76,25 @@ namespace Engine {
 	void GameEngine::Run()
 	{
 		isRunning = true;
+
 		while (isRunning) {
 			m_Time = (float)SDL_GetTicks();
 			float deltaTime = (m_Time - m_PreviousTime) / 1000.0f;
 			m_PreviousTime = m_Time;
-			
 			m_FrameTime += deltaTime;
 
-
 			HandleEvents();
-			m_World->Refresh(); 
 			m_PhysicsWorld->Update(deltaTime);
 			m_World->Update(deltaTime);
-
+			m_World->Refresh();
 			Render();
+			
+			
 		}
 
 		Clean();
 	}
+
 
 	void GameEngine::Render()
 	{
@@ -116,6 +117,7 @@ namespace Engine {
 		SDL_Quit();
 		LOG_CORE("Engine cleaned!", LOG_INFO);
 	}
+
 
 	bool GameEngine::IsRunning()
 	{

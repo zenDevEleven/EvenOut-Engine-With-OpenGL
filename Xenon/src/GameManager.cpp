@@ -23,9 +23,9 @@ void GameManager::Start()
 	m_World.CreateActor<ParallaxBG>();
 
 	m_World.CreateActor<EnemyManager>();
-	m_World.CreateActor<PowerUp>(PowerUpType::MISSILE_PU, glm::vec2(200.0f, 400.f));
-	m_World.CreateActor<PowerUp>(PowerUpType::MISSILE_PU, glm::vec2(200.0f, 200.f));
-	m_World.CreateActor<Clone>(glm::vec3(390.0f, 100.f, 0.0f), CloneType::ClonePowerUp);
+	m_World.CreateActor<PowerUp>(PowerUpType::MISSILE_PU, glm::vec2(600.0f, 200.f));
+	m_World.CreateActor<PowerUp>(PowerUpType::MISSILE_PU, glm::vec2(700.0f, 100.f));
+	m_World.CreateActor<Clone>(glm::vec3(400.0f, 300.f, 0.0f), CloneType::ClonePowerUp);
 
 	UImanager = m_World.CreateActor<UIManager>();
 

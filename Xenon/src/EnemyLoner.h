@@ -13,7 +13,7 @@ public:
 
 
 	void Update(float deltaTime) override;
-
+	void OnDie();
 	void OnContactEvent(Object* other) override;
 
 	void OnEndContactEvent(Object* other) override;
@@ -34,5 +34,6 @@ private:
 	Engine::AnimatorComponent* m_Animator;
 	Engine::Rigidbody2D* m_RigidBody;
 	Engine::BoxCollider2DComponent* m_Collider;
+	Engine::HealthComponent* m_Health;
 
 };

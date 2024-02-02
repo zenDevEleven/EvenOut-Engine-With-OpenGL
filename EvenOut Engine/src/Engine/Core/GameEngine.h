@@ -9,7 +9,8 @@
 
 #include "Texture.h"
 
-namespace Engine {
+namespace Engine 
+{
 	class GameWorld;
 	class PhysicsWorld;
 

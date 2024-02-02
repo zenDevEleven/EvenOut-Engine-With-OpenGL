@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\EnemyRusher.cpp" />
+    <ClCompile Include="src\ScorePopup.cpp" />
     <ClCompile Include="src\LonerBullet.cpp" />
     <ClCompile Include="src\EnemyLoner.cpp" />
     <ClCompile Include="src\Clone.cpp" />
@@ -151,6 +153,8 @@
     <ClCompile Include="src\UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\EnemyRusher.h" />
+    <ClInclude Include="src\ScorePopup.h" />
     <ClInclude Include="src\LonerBullet.h" />
     <ClInclude Include="src\EnemyLoner.h" />
     <ClInclude Include="src\Clone.h" />

@@ -21,8 +21,11 @@ public:
 
 	void AddPlayerScore(int newScore);
 	void UpdatePlayerHealth(int newHealth);
+	void SpawnScorePopUp(int scoreToDraw, glm::vec2 Position);
 	void RenderTextScore(std::string TextToRender, Engine::TextRendererComponent* component);
 	void SetLifePoints(int lifePoints);
+
+	std::vector<char> GetFontData() { return fontData; }
 
 private:
 	int lastHighScore;

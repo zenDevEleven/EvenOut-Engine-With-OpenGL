@@ -111,10 +111,10 @@ namespace Engine {
 				{
 					m_Time = 0;
 
-					if (a->a_CurrentFrame.f_x * m_Texture->t_PixelSize >= m_Texture->GetWidthF()) {
+					if (a->a_CurrentFrame.f_x * m_Texture->t_Size.x >= m_Texture->GetWidthF()) {
 						a->a_CurrentFrame.f_x = 0;
 						a->a_CurrentFrame.f_y += 1;
-						if (a->a_CurrentFrame.f_y * m_Texture->t_PixelSize >= m_Texture->GetHeightF()) {
+						if (a->a_CurrentFrame.f_y * m_Texture->t_Size.y >= m_Texture->GetHeightF()) {
 							if (looping) {
 								a->a_CurrentFrame = a->a_Frames[0];
 							}
@@ -124,8 +124,8 @@ namespace Engine {
 						}
 					}
 
-					m_Texture->t_ScreenRect->x = a->a_CurrentFrame.f_x * m_Texture->t_PixelSize;
-					m_Texture->t_ScreenRect->y = a->a_CurrentFrame.f_y * m_Texture->t_PixelSize;
+					m_Texture->t_ScreenRect->x = a->a_CurrentFrame.f_x * m_Texture->t_Size.x;
+					m_Texture->t_ScreenRect->y = a->a_CurrentFrame.f_y * m_Texture->t_Size.y;
 					a->a_CurrentFrame.f_x += 1;
 				}
 			}
@@ -142,16 +142,16 @@ namespace Engine {
 					if (a->a_Frames.size() == nextFrame) {
 						if (looping) {
 							nextFrame = 0;
-							m_Texture->t_ScreenRect->x = a->a_Frames[nextFrame].f_x * m_Texture->t_PixelSize;
-							m_Texture->t_ScreenRect->y = a->a_Frames[nextFrame].f_y * m_Texture->t_PixelSize;
+							m_Texture->t_ScreenRect->x = a->a_Frames[nextFrame].f_x * m_Texture->t_Size.x;
+							m_Texture->t_ScreenRect->y = a->a_Frames[nextFrame].f_y * m_Texture->t_Size.y;
 							a->a_Finished = false;
 						}
 					}
 					else {
 
 						m_Time = 0;
-						m_Texture->t_ScreenRect->x = a->a_Frames[nextFrame].f_x * m_Texture->t_PixelSize;
-						m_Texture->t_ScreenRect->y = a->a_Frames[nextFrame].f_y * m_Texture->t_PixelSize;
+						m_Texture->t_ScreenRect->x = a->a_Frames[nextFrame].f_x * m_Texture->t_Size.x;
+						m_Texture->t_ScreenRect->y = a->a_Frames[nextFrame].f_y * m_Texture->t_Size.y;
 					}
 				}
 			}
@@ -178,7 +178,7 @@ namespace Engine {
 		{
 			for (int i = 0; i < a.a_Frames.size(); ++i)
 			{
-				if ((a.a_Frames[i].f_x * m_Texture->t_PixelSize) == x && (a.a_Frames[i].f_y * m_Texture->t_PixelSize) == y) {
+				if ((a.a_Frames[i].f_x * m_Texture->t_Size.x) == x && (a.a_Frames[i].f_y * m_Texture->t_Size.y) == y) {
 					if (i + 1 < a.a_Frames.size()) {
 						return i + 1;
 					}
@@ -636,12 +636,14 @@ namespace Engine {
 
 		}
 
+		void AddPosition(glm::vec2 position) {
+			currentPosition += position;
+		}
 
 		void UpdateComponent(float deltaTime) override
 		{
 
 		}
-
 
 		void DrawComponent() override
 		{
@@ -765,7 +767,7 @@ namespace Engine {
 							scale,
 							m_ImageTexture->t_ScreenRect,
 							m_ImageTexture);
-					case Engine::ImageRendererComponent::TilingDirection::LEFT:
+					case ImageRendererComponent::TilingDirection::LEFT:
 						Renderer2D::DrawQuad({ m_DrawPosition.x - (m_PixelsPerTile * i), m_DrawPosition.y },
 							scale,
 							m_ImageTexture->t_ScreenRect,

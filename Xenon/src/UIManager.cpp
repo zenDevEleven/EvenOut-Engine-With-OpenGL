@@ -2,6 +2,8 @@
 #include "Global.h"
 
 #include "Engine/Core/DataSaver.h"
+#include "GameManager.h"
+#include "ScorePopup.h"
 
 UIManager::UIManager()
 {
@@ -67,6 +69,11 @@ void UIManager::UpdatePlayerHealth(int newHealth)
 	int newXValue = (newHealth * texWidth) / 100;
 
 	HealthbarFill->SetSize({ newXValue , HealthbarFill->m_ImageTexture->GetHeight() });
+}
+
+void UIManager::SpawnScorePopUp(int scoreToDraw, glm::vec2 Position)
+{
+	GameManager::GetManager().InstantiateObject<ScorePopup>(Position, scoreToDraw, *this);
 }
 
 void UIManager::RenderTextScore(std::string TextToRender, Engine::TextRendererComponent* component) {
